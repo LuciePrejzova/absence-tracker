@@ -6,13 +6,15 @@ import jakarta.persistence.*;
 public class User {
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long sysId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long sysId;
 	private String firstName;
 	private String lastName;
 	private String telNumber;
+	@Column(name = "email", unique = true, nullable = false)
 	private String email;
 	
+	@Column(name = "user_name", unique = true, nullable = false)
 	private String userName;
 	private String password;
 	
