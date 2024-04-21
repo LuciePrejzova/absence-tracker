@@ -1,7 +1,10 @@
 package com.FLsolutions.absenceTracker.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.FLsolutions.absenceTracker.models.Kid;
 import com.FLsolutions.absenceTracker.repositories.KidRepository;
 
 
@@ -13,5 +16,10 @@ public class KidServiceImpl implements KidService{
     public KidServiceImpl(KidRepository kidRepository) {
         this.kidRepository = kidRepository;
     }
+
+	@Override
+	public List<Kid> getAllKids() {
+		return kidRepository.findAll();
+	}
 
 }

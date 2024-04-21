@@ -17,6 +17,10 @@ public class Kid extends User{
 	private int substitutes;
 	private int dayType; //1 = half day, 2 = full day
 	
+	public Kid() {
+		super();
+	}
+	
 	public Kid(String firstName, String lastName, List<Attendance> attendance, int dayType) {
 		super(firstName, lastName);
 		this.substitutes = 0;
