@@ -3,33 +3,48 @@ package com.FLsolutions.absenceTracker.models;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "users")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User {
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Long sysId;
 	private String firstName;
 	private String lastName;
 	private String telNumber;
-	@Column(name = "email", unique = true, nullable = false)
+	@Column(name = "email", unique = true)
 	private String email;
 	
 	@Column(name = "user_name", unique = true, nullable = false)
 	private String userName;
 	private String password;
 	
+	
 	public User() {}
 	
-	public User(String firstName, String lastName, String telNumber, String email) {
+	public User(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+	
+	public User(String firstName, String lastName, String telNumber, String email) {
+        this(firstName, lastName);
         this.telNumber = telNumber;
 		this.email = email;
 		
-		this.userName = firstName + lastName;
+		this.userName = createUserName(firstName, lastName);
 		//method to create safe password to be done
-		this.password = "password";
+		this.password = createPassword();
     }
+	
+	public String createUserName(String firstName, String lastName) {
+		return firstName + lastName;
+	}
+	
+	public String createPassword() {
+		return "password";
+	}
 	
 	public Long getSysId() {
 		return sysId;

@@ -5,5 +5,5 @@ public enum Attendance {
 	TUE,
 	WED,
 	THU,
-	FR
+	FRI
 }
