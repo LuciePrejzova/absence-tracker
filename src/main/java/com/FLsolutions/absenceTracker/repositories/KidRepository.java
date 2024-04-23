@@ -10,4 +10,5 @@ import com.FLsolutions.absenceTracker.models.Kid;
 public interface KidRepository extends JpaRepository<Kid, Long> {
 	
 	List<Kid> findAll();
+	Kid findBySysId(int sysId);
 }

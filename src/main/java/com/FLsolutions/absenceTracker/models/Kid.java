@@ -11,9 +11,9 @@ import com.FLsolutions.absenceTracker.models.Attendance;
 @Table(name = "kids")
 public class Kid extends User{
 		
-	@ElementCollection
-    @Enumerated(EnumType.STRING)
-	private List<Attendance> attendance;
+//	@ElementCollection
+//  @Enumerated(EnumType.STRING)
+//	private List<Attendance> attendance;
 	private int substitutes;
 	private int dayType; //1 = half day, 2 = full day
 	
@@ -21,20 +21,27 @@ public class Kid extends User{
 		super();
 	}
 	
-	public Kid(String firstName, String lastName, List<Attendance> attendance, int dayType) {
+	public Kid(String firstName, String lastName, int dayType) {
 		super(firstName, lastName);
 		this.substitutes = 0;
-		this.attendance = attendance;
+//		this.attendance = attendance;
 		this.dayType = dayType;
 	}
+	
+//	public Kid(String firstName, String lastName, List<Attendance> attendance, int dayType) {
+//		super(firstName, lastName);
+//		this.substitutes = 0;
+//		this.attendance = attendance;
+//		this.dayType = dayType;
+//	}
 
 
-	public List<Attendance> getAttendance() {
-		return attendance;
-	}
-	public void setAttendance(List<Attendance> attendance) {
-		this.attendance = attendance;
-	}
+//	public List<Attendance> getAttendance() {
+//		return attendance;
+//	}
+//	public void setAttendance(List<Attendance> attendance) {
+//		this.attendance = attendance;
+//	}
 	public int getSubstitutes() {
 		return substitutes;
 	}
