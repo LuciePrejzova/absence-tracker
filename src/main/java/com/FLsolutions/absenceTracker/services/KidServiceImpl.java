@@ -35,4 +35,10 @@ public class KidServiceImpl implements KidService {
 		return null;
 	}
 
+	@Override
+	public List<KidResponseDto> getKidsWithAttendance(Attendance attendance) {
+		List<Kid> kids = kidRepository.findByAttendanceContaining(attendance);
+		return kids.stream().map(kid -> new KidResponseDto(kid)).collect(Collectors.toList());
+	}
+
 }
